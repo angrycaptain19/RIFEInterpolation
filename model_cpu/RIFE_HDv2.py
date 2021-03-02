@@ -93,7 +93,7 @@ class FusionNet(nn.Module):
     def forward(self, img0, img1, flow, c0, c1, flow_gt):
         warped_img0 = warp(img0, flow[:, :2])
         warped_img1 = warp(img1, flow[:, 2:4])
-        if flow_gt == None:
+        if flow_gt is None:
             warped_img0_gt, warped_img1_gt = None, None
         else:
             warped_img0_gt = warp(img0, flow_gt[:, :2])
